@@ -1,0 +1,399 @@
+<!-- FILE: 404.html – Super Animated Lost in Space -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Lost in Space | Affan Adil</title>
+  <meta name="description" content="You seem lost. Let's get you back home.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- No external stylesheets needed except Google Fonts -->
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #ededed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      cursor: none;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* Light mode override */
+    [data-theme="light"] body {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    /* Dark mode (default) */
+    body {
+      background: #0a0a0a;
+      color: #ededed;
+    }
+
+    /* Tech mode */
+    [data-theme="tech"] body {
+      background: #030014;
+      color: #e0e0ff;
+    }
+
+    /* Stars canvas */
+    #stars-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* Floating astronaut */
+    .astronaut {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      animation: floatAstronaut 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .astronaut img { width:100%; height:100%; }
+    @keyframes floatAstronaut {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+      50% { transform: translate(-50%, -50%) translateY(-20px); }
+    }
+
+    .content-wrapper {
+      text-align: center;
+      z-index: 10;
+      padding: 2rem;
+      max-width: 600px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      animation: fadeInUp 1s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(40px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    .error-code {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8rem;
+      font-weight: 800;
+      letter-spacing: -4px;
+      margin-bottom: 0.2rem;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: pulseCode 2s infinite;
+    }
+    @keyframes pulseCode {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .error-sub {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--accent, #3b82f6);
+    }
+    .error-desc {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      color: var(--text-secondary, #a3a3a3);
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      background: var(--accent, #2563eb);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: none;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+    }
+    .btn-home:hover {
+      background: var(--accent-hover, #1d4ed8);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(37,99,235,0.4);
+    }
+    [data-theme="tech"] .btn-home {
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      box-shadow: 0 0 20px rgba(0,255,255,0.5);
+    }
+    [data-theme="tech"] .btn-home:hover {
+      box-shadow: 0 0 35px rgba(0,255,255,0.7);
+    }
+
+    /* Custom cursor (from main site) */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--dot-color, #2563eb);
+      pointer-events: none;
+      z-index: 999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, background 0.25s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--ring-color, rgba(37,99,235,0.25));
+      pointer-events: none;
+      z-index: 999998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, border-color 0.3s;
+    }
+    [data-theme="tech"] .cursor-dot {
+      background: #00ffff; box-shadow: 0 0 8px #00ffff;
+    }
+    [data-theme="tech"] .cursor-ring {
+      border-color: rgba(0,255,255,0.3);
+      box-shadow: 0 0 12px rgba(0,255,255,0.15);
+    }
+
+    /* Theme switcher at bottom */
+    .theme-toggle-mini {
+      margin-top: 2rem;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+    .theme-btn-mini {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.1);
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .theme-btn-mini:hover { background: rgba(255,255,255,0.2); }
+    .theme-btn-mini.active {
+      border-color: var(--accent, #2563eb);
+      box-shadow: 0 0 12px rgba(37,99,235,0.3);
+    }
+    [data-theme="tech"] .theme-btn-mini.active {
+      border-color: #00ffff;
+      box-shadow: 0 0 18px rgba(0,255,255,0.5);
+    }
+    /* Tab visibility toast (reuse style) */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: var(--surface, #171717);
+      color: var(--text-primary, #ededed);
+      border: 1px solid var(--border, #262626);
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      z-index: 99999;
+      animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s forwards;
+      max-width: 320px;
+      backdrop-filter: blur(8px);
+    }
+    @keyframes toastIn {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+    @keyframes toastOut {
+      from { opacity:1; transform: translateY(0); }
+      to { opacity:0; transform: translateY(20px); }
+    }
+
+    @media (max-width: 600px) {
+      .error-code { font-size: 5rem; }
+      .astronaut { width: 80px; height: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stars background canvas -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- Floating astronaut using an inline SVG (no external image) -->
+  <div class="astronaut">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+      <circle cx="35" cy="35" r="10" fill="#fff"/>
+      <circle cx="65" cy="35" r="10" fill="#fff"/>
+      <circle cx="35" cy="35" r="4" fill="#111"/>
+      <circle cx="65" cy="35" r="4" fill="#111"/>
+      <path d="M40 55 Q50 70 60 55" stroke="#fff" stroke-width="3" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+    <div class="error-code">404</div>
+    <div class="error-sub">Lost in Space</div>
+    <p class="error-desc">The page you're looking for drifted into a black hole. But don't worry, we have a spaceship ready to take you home.</p>
+    <a href="index.html" class="btn-home">🚀 Back to Earth</a>
+    <div class="theme-toggle-mini">
+      <button class="theme-btn-mini" data-theme-btn="light">☀️</button>
+      <button class="theme-btn-mini" data-theme-btn="dark">🌙</button>
+      <button class="theme-btn-mini" data-theme-btn="tech">🧬</button>
+    </div>
+  </div>
+
+  <!-- Custom cursor elements -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <script>
+    (function() {
+      // ---- Theme toggle (localStorage) ----
+      const html = document.documentElement;
+      const savedTheme = localStorage.getItem('affan-theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+
+      const themeBtns = document.querySelectorAll('[data-theme-btn]');
+      function setActiveButton(theme) {
+        themeBtns.forEach(b => b.classList.remove('active'));
+        const active = document.querySelector(`[data-theme-btn="${theme}"]`);
+        if(active) active.classList.add('active');
+      }
+      setActiveButton(savedTheme);
+
+      themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme-btn');
+          html.setAttribute('data-theme', theme);
+          localStorage.setItem('affan-theme', theme);
+          setActiveButton(theme);
+        });
+      });
+
+      // ---- Custom cursor ----
+      const dot = document.getElementById('cursorDot');
+      const ring = document.getElementById('cursorRing');
+      let mouseX = -100, mouseY = -100;
+      let ringX = -100, ringY = -100;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+      });
+
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.2;
+        ringY += (mouseY - ringY) * 0.2;
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      // ---- Tab visibility toast ----
+      const originalTitle = document.title;
+      let hiddenToastShown = false;
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => { if(toast.parentNode) toast.remove(); }, 3000);
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          document.title = '👋 Come back, Affan!';
+          if (!hiddenToastShown) {
+            showToast("We'll keep your seat warm.");
+            hiddenToastShown = true;
+          }
+        } else {
+          document.title = originalTitle;
+          showToast('✨ Welcome back, builder!');
+          hiddenToastShown = false;
+        }
+      });
+
+      // ---- Stars background (vanilla canvas) ----
+      const canvas = document.getElementById('stars-canvas');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      const STAR_COUNT = 200;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function createStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 2.5 + 0.5,
+            alpha: Math.random(),
+            delta: Math.random() * 0.02 + 0.005,
+            increasing: true
+          });
+        }
+      }
+      createStars();
+
+      function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(star => {
+          if (star.increasing) {
+            star.alpha += star.delta;
+            if (star.alpha >= 1) { star.increasing = false; }
+          } else {
+            star.alpha -= star.delta;
+            if (star.alpha <= 0.2) { star.increasing = true; }
+          }
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(drawStars);
+      }
+      drawStars();
+    })();
+  </script>
+</body>
+</html>

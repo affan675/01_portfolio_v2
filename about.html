@@ -1,0 +1,384 @@
+<!-- FILE: about.html (ENHANCED) -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Affan Adil</title>
+  <meta name="description" content="About Affan Adil – 14-year-old polymath, builder, and disciplined learner.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/preloader.css">
+  <link rel="stylesheet" href="css/cursor.css">
+
+  <!-- Enhanced about page specific styles -->
+  <style>
+    /* Make about cards extra interactive */
+    .about-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                  box-shadow 0.4s ease,
+                  border-color 0.3s ease;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+    }
+    .about-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--accent);
+    }
+    [data-theme="tech"] .about-card:hover {
+      border-color: var(--primary-glow);
+      box-shadow: 0 12px 36px rgba(0,255,255,0.15), 0 0 28px rgba(255,0,255,0.08);
+    }
+    .about-card .card-glow {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent) 0%, transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+      mix-blend-mode: overlay;
+    }
+    .about-card:hover .card-glow {
+      opacity: 0.07;
+    }
+    .about-card .card-content {
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+    }
+    .about-card-icon {
+      font-size: 2.3rem;
+      margin-bottom: 0.75rem;
+      transition: transform 0.4s ease, color 0.3s ease;
+    }
+    .about-card:hover .about-card-icon {
+      transform: scale(1.2) rotate(-5deg);
+      color: var(--accent);
+    }
+    [data-theme="tech"] .about-card:hover .about-card-icon {
+      color: var(--primary-glow);
+    }
+    .about-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    .about-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .progress-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .progress-chip .mini-bar {
+      width: 60px;
+      height: 6px;
+      background: var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .progress-chip .mini-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 6px;
+      transition: width 0.6s ease;
+    }
+    .badge-tag {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background: var(--border);
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    .tool-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+    }
+    .tool-icons i:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+      transition: 0.2s;
+    }
+    .achievement-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .achievement-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-secondary);
+    }
+    .achievement-list li i {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    /* Center the section title nicely */
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+    /* Responsive grid with 3 columns on desktop */
+    @media (min-width: 1025px) {
+      .cards-grid-about {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 1024px) {
+      .cards-grid-about {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .cards-grid-about {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="preloader">
+    <div class="preloader-card">
+      <div class="preloader-icon">💡</div>
+      <p class="preloader-label">Loading brilliance...</p>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar" id="progressBar"></div>
+        <span class="preloader-percentage" id="progressText">0%</span>
+      </div>
+    </div>
+  </div>
+  <div id="blast-overlay"></div>
+  <div id="blast-particles"></div>
+  <div id="main-content" class="content-hidden">
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">AA</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="report.html">Report</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="theme-toggle-group">
+          <button class="theme-btn" data-theme-btn="light" aria-label="Light mode">☀️</button>
+          <button class="theme-btn" data-theme-btn="dark" aria-label="Dark mode">🌙</button>
+          <button class="theme-btn" data-theme-btn="tech" aria-label="Tech mode">🧬</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="section-header">
+        <h1 class="section-title">About Me</h1>
+        <p>A 14‑year‑old polymath who believes logic beats luck and discipline beats motivation.</p>
+      </div>
+
+      <!-- 9-card grid with enhanced interactivity -->
+      <div class="cards-grid cards-grid-about">
+        
+        <!-- Card 1: Polymath Mindset -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">🧠 Core</div>
+            <div class="about-card-icon">🧩</div>
+            <h3>Polymath Mindset</h3>
+            <p>I connect dots across design, code, and logic. Curious by nature, builder by habit.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Discipline System -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">⏳ Habit</div>
+            <div class="about-card-icon">⚡</div>
+            <h3>Discipline System</h3>
+            <p>Daily 2–4h deep work. No zero days. Systems > willpower.</p>
+            <div class="progress-chip">
+              <span>Consistency</span>
+              <div class="mini-bar"><div class="mini-bar-fill" style="width:85%"></div></div>
+              <span>85%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Tech Stack -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">💻 Stack</div>
+            <div class="about-card-icon">🛠️</div>
+            <h3>Tech Stack</h3>
+            <p>HTML, CSS, JavaScript (current). Diving into React & Node.js soon.</p>
+          </div>
+        </div>
+
+        <!-- NEW Card 4: Current Focus -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">🎯 Now</div>
+            <div class="about-card-icon">🎓</div>
+            <h3>Current Focus</h3>
+            <p>Mastering JavaScript deep concepts and building real projects.</p>
+            <div class="progress-chip">
+              <span>JS Mastery</span>
+              <div class="mini-bar"><div class="mini-bar-fill" style="width:65%"></div></div>
+              <span>65%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW Card 5: Personality Type -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">🧬 Type</div>
+            <div class="about-card-icon">🧭</div>
+            <h3>Builder Archetype</h3>
+            <p>I thrive on creating things from scratch. Tinkerer, problem‑solver, INTJ‑like.</p>
+          </div>
+        </div>
+
+        <!-- NEW Card 6: Favorite Tools -->
+        <div class="card about-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="badge-tag">🔧 Tools</div>
+            <div class="about-card-icon">⚙️</div>
+            <h3>Favourite Tools</h3>
+            <p>VS Code, Figma (learning), Git & GitHub, Chrome DevTools.</p>
+            <div class="tool-icons">
+              <i class="fab fa-figma" title="Figma"></i>
+              <i class="fab fa-git-alt" title="Git"></i>
+              <i class="fab fa-github" title="GitHub"></i>
+              <i class="fas fa-code" title="VS Code"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Original Placeholder Card 7 (Freelance Journey) -->
+        <div class="card about-card placeholder-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="about-card-icon">💼</div>
+            <h3>Freelance Journey</h3>
+            <p>Taking first steps into freelancing. Building portfolio that proves value.</p>
+            <span class="coming-soon-badge">🔜 Coming Soon</span>
+          </div>
+        </div>
+
+        <!-- Original Placeholder Card 8 (Learning Milestones) -->
+        <div class="card about-card placeholder-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="about-card-icon">📜</div>
+            <h3>Learning Milestones</h3>
+            <p>Certificates, courses, and verified achievements – will be updated regularly.</p>
+            <span class="coming-soon-badge">🔜 Will update</span>
+          </div>
+        </div>
+
+        <!-- Original Placeholder Card 9 (Projects Showcase) -->
+        <div class="card about-card placeholder-card reveal">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="about-card-icon">📁</div>
+            <h3>Projects Showcase</h3>
+            <p>Detailed case studies of my best projects are in the works.</p>
+            <span class="coming-soon-badge">🔜 In progress</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Affan Adil. All rights reserved.</p>
+      <p class="footer-motto">Discipline &gt; Motivation</p>
+    </footer>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div id="toast-container"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/typing.js"></script>
+  <script src="js/counters.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/tab-visibility.js"></script>
+      <canvas id="particle-canvas"></canvas>
+    <script src="js/particle.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/right-click.js"></script>
+    <script src="js/achievements.js"></script>
+<script src="js/shortcuts.js"></script>
+
+  <!-- particle-config only if you have particles here (optional) -->
+  
+  <!-- Minor interactive JS for about cards glow follow mouse -->
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.about-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', x + '%');
+          card.style.setProperty('--mouse-y', y + '%');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--mouse-x', '50%');
+          card.style.setProperty('--mouse-y', '50%');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

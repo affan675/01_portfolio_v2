@@ -1,0 +1,382 @@
+<!-- FILE: index.html (UPDATED) -->
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affan Adil – Polymath Portfolio</title>
+
+    <!-- SEO & Social Meta Tags -->
+    <meta
+      name="description"
+      content="Affan Adil - 14-year-old polymath and builder. Portfolio showcasing projects, skills, and dev diary."
+    />
+    <meta
+      name="keywords"
+      content="Affan Adil, polymath, web developer, portfolio, builder, teen developer"
+    />
+    <meta name="author" content="Affan Adil" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:site_name" content="Affan Adil – Portfolio" />
+    <meta property="og:title" content="Affan Adil – Polymath Portfolio" />
+    <meta
+      property="og:description"
+      content="14-year-old polymath. Logic over luck. Discipline over motivation. Explore projects, skills, and dev diary."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://affanadil.dev" />
+    <meta
+      property="og:image"
+      content="https://affanadil.dev/assets/og-image.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Affan Adil – Polymath Portfolio" />
+    <meta
+      name="twitter:description"
+      content="14-year-old polymath. Logic over luck. Discipline over motivation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://affanadil.dev/assets/og-image.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
+    <link rel="stylesheet" href="css/cursor.css" />
+    <link rel="stylesheet" href="css/particle.css" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Additional styles for new hero elements (should be moved to components.css) -->
+    <style>
+      .hero-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+        transition:
+          background 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      [data-theme="tech"] .hero-avatar {
+        background: linear-gradient(135deg, #00ffff, #ff00ff);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+      }
+      .wave-emoji {
+        display: inline-block;
+        animation: wavePulse 1.6s ease-in-out infinite;
+        transform-origin: 70% 70%;
+        font-size: 1.8rem;
+        vertical-align: middle;
+      }
+      @keyframes wavePulse {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(14deg);
+        }
+        20% {
+          transform: rotate(-8deg);
+        }
+        30% {
+          transform: rotate(14deg);
+        }
+        40% {
+          transform: rotate(-4deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        60% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      .hero-socials {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .hero-socials a {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .hero-socials a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      [data-theme="tech"] .hero-socials a:hover {
+        border-color: var(--primary-glow);
+        color: var(--primary-glow);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="preloader-card">
+        <div class="preloader-icon">💡</div>
+        <p class="preloader-label">Loading brilliance...</p>
+        <div class="preloader-progress-container">
+          <div class="preloader-progress-bar" id="progressBar"></div>
+          <span class="preloader-percentage" id="progressText">0%</span>
+        </div>
+      </div>
+    </div>
+    <div id="blast-overlay"></div>
+    <div id="blast-particles"></div>
+    <div id="main-content" class="content-hidden">
+      <div
+        id="particles-js"
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          display: none;
+        "
+      ></div>
+
+      <nav class="navbar" id="navbar">
+        <div class="nav-container">
+          <a href="index.html" class="nav-logo">AA</a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="report.html">Report</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="theme-toggle-group">
+            <button
+              class="theme-btn"
+              data-theme-btn="light"
+              aria-label="Light mode"
+            >
+              ☀️
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="dark"
+              aria-label="Dark mode"
+            >
+              🌙
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="tech"
+              aria-label="Tech mode"
+            >
+              🧬
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <div class="hero-content">
+            <div class="hero-avatar">AA</div>
+            <p class="hero-greeting">
+              <span class="wave-emoji">👋</span> Hey, I'm
+            </p>
+            <h1 class="hero-name">Affan Adil</h1>
+            <div class="typing-container">
+              <span class="typing-prefix">I'm a&nbsp;</span>
+              <span class="typing-text" id="typingText"></span>
+              <span class="typing-cursor">|</span>
+            </div>
+            <p class="hero-subtitle">
+              14-year-old builder. Logic over luck. Discipline over motivation.
+            </p>
+            <div class="hero-cta">
+              <a href="projects.html" class="btn btn-primary">View Projects</a>
+              <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+            </div>
+            <!-- Social icons row -->
+            <div class="hero-socials">
+              <a href="#" target="_blank" aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="#" target="_blank" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" target="_blank" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" target="_blank" aria-label="Discord"
+                ><i class="fab fa-discord"></i
+              ></a>
+              <a href="#" target="_blank" aria-label="CodePen"
+                ><i class="fab fa-codepen"></i
+              ></a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="skill-circles">
+              <div class="skill-circle" data-percent="100">
+                <svg viewBox="0 0 120 120">
+                  <circle class="bg-ring" cx="60" cy="60" r="52" />
+                  <circle
+                    class="progress-ring"
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    stroke-dasharray="326.73"
+                    stroke-dashoffset="326.73"
+                  />
+                </svg>
+                <span class="skill-label">HTML</span
+                ><span class="skill-value">0%</span>
+              </div>
+              <div class="skill-circle" data-percent="90">
+                <svg viewBox="0 0 120 120">
+                  <circle class="bg-ring" cx="60" cy="60" r="52" />
+                  <circle
+                    class="progress-ring"
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    stroke-dasharray="326.73"
+                    stroke-dashoffset="326.73"
+                  />
+                </svg>
+                <span class="skill-label">CSS</span
+                ><span class="skill-value">0%</span>
+              </div>
+              <div class="skill-circle" data-percent="95">
+                <svg viewBox="0 0 120 120">
+                  <circle class="bg-ring" cx="60" cy="60" r="52" />
+                  <circle
+                    class="progress-ring"
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    stroke-dasharray="326.73"
+                    stroke-dashoffset="326.73"
+                  />
+                </svg>
+                <span class="skill-label">JS</span
+                ><span class="skill-value">0%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-section reveal">
+          <div class="stats-card card">
+            <div class="stats-header">
+              <i class="fab fa-github"></i> GitHub Stats
+            </div>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">200+</span
+                ><span class="stat-desc">Public Repos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">1000+</span
+                ><span class="stat-desc">Stars</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">14</span
+                ><span class="stat-desc">Age</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">3</span
+                ><span class="stat-desc">Themes</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="featured-section reveal">
+          <h2 class="section-title">Featured Project</h2>
+          <div class="featured-card card">
+            <div class="featured-badge">🚀 Live</div>
+            <h3>Super Portfolio</h3>
+            <p>
+              This very site – 3 theme modes, custom cursor with magnetic ring,
+              preloader with electric blast effect, particle.js background, and
+              a fully responsive design. Built with pure HTML, CSS, and vanilla
+              JavaScript.
+            </p>
+            <div class="featured-tech">
+              <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span
+              ><span>Particles.js</span>
+            </div>
+            <a href="projects.html" class="btn btn-primary">See Details</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>&copy; 2026 Affan Adil. All rights reserved.</p>
+        <p class="footer-motto">Discipline &gt; Motivation</p>
+      </footer>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div id="toast-container"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/typing.js"></script>
+    <script src="js/counters.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/tab-visibility.js"></script>
+    <script src="js/particles-config.js"></script>
+    <canvas id="particle-canvas"></canvas>
+    <script src="js/particle.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/right-click.js"></script>
+    <script src="js/achievements.js"></script>
+<script src="js/shortcuts.js"></script>
+  </body>
+</html>

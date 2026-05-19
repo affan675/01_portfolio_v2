@@ -1,0 +1,148 @@
+/* FILE: css/responsive.css */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-subtitle {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .hero-name {
+    font-size: 2.8rem;
+  }
+  .typing-container {
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-circles {
+    gap: 1rem;
+  }
+  .skill-circle {
+    width: 110px;
+    height: 110px;
+  }
+  .skill-circle svg {
+    width: 100px;
+    height: 100px;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--surface);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    font-size: 1.3rem;
+  }
+  .nav-links.active {
+    transform: translateX(0);
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+  .hero-name {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+  .typing-container {
+    font-size: 1rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .skill-circles {
+    gap: 0.75rem;
+  }
+  .skill-circle {
+    width: 95px;
+    height: 95px;
+  }
+  .skill-circle svg {
+    width: 86px;
+    height: 86px;
+    top: 4px;
+    left: 4px;
+  }
+  .bg-ring, .progress-ring {
+    stroke-width: 6;
+  }
+  .skill-value {
+    font-size: 1rem;
+  }
+  .skill-label {
+    font-size: 0.7rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  main {
+    padding: 1.25rem 1rem;
+  }
+  .theme-toggle-group {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1002;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+  }
+  .footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  .project-card .project-image {
+    height: 140px;
+    font-size: 2.2rem;
+  }
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  .timeline-entry {
+    padding-left: 1.25rem;
+  }
+  .timeline-entry::before {
+    left: -1.85rem;
+    width: 11px;
+    height: 11px;
+    top: 1.4rem;
+  }
+  .contact-form {
+    max-width: 100%;
+  }
+}
