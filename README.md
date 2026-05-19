@@ -6,7 +6,7 @@
 
 *Logic over luck. Discipline over motivation.*
 
-[Portfolio](https://affanadil.dev) • [Twitter](https://twitter.com/affan675) • [Email](mailto:affan@example.com)
+[Portfolio](https://affanadil.dev) • [Twitter](https://twitter.com/affan675) • [Email](mailto:affanadil11@gmail.com)
 
 </div>
 
@@ -148,10 +148,8 @@ A modern, responsive personal portfolio website with theme switching, particle a
 
 I'm always interested in collaborating on interesting projects or discussing web development best practices.
 
-- **Portfolio:** [affanadil.dev](https://affanadil.dev)
 - **GitHub:** [@affan675](https://github.com/affan675)
-- **Email:** [affan@example.com](mailto:affan@example.com)
-- **Twitter:** [@affan675](https://twitter.com/affan675)
+- **Email:** [affanadil11@gmail.com](mailto:affanadil11@gmail.com)
 
 ---
 
