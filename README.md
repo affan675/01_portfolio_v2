@@ -149,7 +149,7 @@ A modern, responsive personal portfolio website with theme switching, particle a
 I'm always interested in collaborating on interesting projects or discussing web development best practices.
 
 - **GitHub:** [@affan675](https://github.com/affan675)
-- **Email:** [affanadil11@gmail.com](mailto:affanadil11@gmail.com)
+- **Email:** [affanadil119@gmail.com](mailto:affanadil11@gmail.com)
 
 ---
 
