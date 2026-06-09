@@ -1,345 +1,471 @@
 <!-- FILE: report.html (ENHANCED – study profile, research cards, professional layout) -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affan Adil – Dev Report</title>
-  <meta name="description" content="Affan Adil's dev diary, study profile, research works, and activity heatmap.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/themes.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/preloader.css">
-  <link rel="stylesheet" href="css/cursor.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affan Adil – Dev Report</title>
+    <meta
+      name="description"
+      content="Affan Adil's dev diary, study profile, research works, and activity heatmap."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
+    <link rel="stylesheet" href="css/cursor.css" />
 
-  <style>
-    /* Report page specific */
-    .report-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .report-title h1 {
-      font-size: 2.8rem;
-    }
-    .report-title h1 span {
-      color: var(--accent);
-    }
-    .report-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr 280px;
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: 3rem;
-    }
-    /* Study profile card (left) */
-    .study-profile {
-      text-align: center;
-    }
-    .study-profile .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin: 0 auto 1rem;
-      box-shadow: 0 8px 24px rgba(37,99,235,0.25);
-    }
-    [data-theme="tech"] .study-profile .avatar {
-      background: linear-gradient(135deg, #00ffff, #ff00ff);
-      box-shadow: 0 0 20px rgba(0,255,255,0.4);
-    }
-    .study-profile h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.2rem;
-    }
-    .study-profile .badge {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
-    }
-    .study-stats {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      margin-top: 1rem;
-    }
-    .study-stats li {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-    }
-    .study-stats li:last-child {
-      border-bottom: none;
-    }
-    /* Right cards */
-    .research-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .research-item {
-      transition: transform 0.3s;
-    }
-    .research-item:hover {
-      transform: translateY(-4px);
-    }
-    .research-item i {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    [data-theme="tech"] .research-item i {
-      color: var(--primary-glow);
-    }
-    /* Center timeline styling enhanced */
-    .timeline-centered {
-      position: relative;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    .timeline-centered::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--border);
-      border-radius: 2px;
-    }
-    .timeline-centered li {
-      position: relative;
-      margin-bottom: 2rem;
-      padding-left: 50px;
-    }
-    .timeline-centered li::before {
-      content: '';
-      position: absolute;
-      left: 14px;
-      top: 6px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--surface);
-      z-index: 1;
-    }
-    .timeline-centered li:last-child {
-      margin-bottom: 0;
-    }
-    .timeline-date {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-    .timeline-centered h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-    }
-    .timeline-centered p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-
-    /* Heatmap styling */
-    .heatmap-wrapper {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
+    <style>
+      /* Report page specific */
+      .report-title {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .report-title h1 {
+        font-size: 2.8rem;
+      }
+      .report-title h1 span {
+        color: var(--accent);
+      }
       .report-layout {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 280px 1fr 280px;
+        gap: 2rem;
+        align-items: start;
+        margin-bottom: 3rem;
+      }
+      /* Study profile card (left) */
+      .study-profile {
+        text-align: center;
+      }
+      .study-profile .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        margin: 0 auto 1rem;
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+      }
+      [data-theme="tech"] .study-profile .avatar {
+        background: linear-gradient(135deg, #00ffff, #ff00ff);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+      }
+      .study-profile h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+      }
+      .study-profile .badge {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+      }
+      .study-stats {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin-top: 1rem;
+      }
+      .study-stats li {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+      .study-stats li:last-child {
+        border-bottom: none;
+      }
+      /* Right cards */
+      .research-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .research-item {
+        transition: transform 0.3s;
+      }
+      .research-item:hover {
+        transform: translateY(-4px);
+      }
+      .research-item i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--accent);
+      }
+      [data-theme="tech"] .research-item i {
+        color: var(--primary-glow);
+      }
+      /* Center timeline styling enhanced */
+      .timeline-centered {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        list-style: none;
       }
       .timeline-centered::before {
+        content: "";
+        position: absolute;
         left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--border);
+        border-radius: 2px;
       }
-    }
-  </style>
-</head>
-<body>
-  <div id="preloader">
-    <div class="preloader-card">
-      <div class="preloader-icon">💡</div>
-      <p class="preloader-label">Loading dev diary...</p>
-      <div class="preloader-progress-container">
-        <div class="preloader-progress-bar" id="progressBar"></div>
-        <span class="preloader-percentage" id="progressText">0%</span>
+      .timeline-centered li {
+        position: relative;
+        margin-bottom: 2rem;
+        padding-left: 50px;
+      }
+      .timeline-centered li::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid var(--surface);
+        z-index: 1;
+      }
+      .timeline-centered li:last-child {
+        margin-bottom: 0;
+      }
+      .timeline-date {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.2rem;
+      }
+      .timeline-centered h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+      }
+      .timeline-centered p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* Heatmap styling */
+      .heatmap-wrapper {
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .report-layout {
+          grid-template-columns: 1fr;
+        }
+        .timeline-centered::before {
+          left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="preloader-card">
+        <div class="preloader-icon">💡</div>
+        <p class="preloader-label">Loading dev diary...</p>
+        <div class="preloader-progress-container">
+          <div class="preloader-progress-bar" id="progressBar"></div>
+          <span class="preloader-percentage" id="progressText">0%</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="blast-overlay"></div>
-  <div id="blast-particles"></div>
-  <div id="main-content" class="content-hidden">
-
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="index.html" class="nav-logo">AA</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="report.html" class="active">Report</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="theme-toggle-group">
-          <button class="theme-btn" data-theme-btn="light" aria-label="Light mode">☀️</button>
-          <button class="theme-btn" data-theme-btn="dark" aria-label="Dark mode">🌙</button>
-          <button class="theme-btn" data-theme-btn="tech" aria-label="Tech mode">🧬</button>
-        </div>
-      </div>
-    </nav>
-
-    <main>
-      <div class="report-title">
-        <h1>Dev <span>Report</span></h1>
-      </div>
-
-      <div class="report-layout">
-        
-        <!-- Left: Study Profile -->
-        <div class="card study-profile reveal">
-          <div class="avatar">AA</div>
-          <h2>Affan Adil</h2>
-          <div class="badge">14 y/o · Polymath · Builder</div>
-          <p style="font-size:0.9rem; color:var(--text-secondary);">Self‑taught developer documenting the journey.</p>
-          <ul class="study-stats">
-            <li><span>💻 Active Learning</span> <strong>4h/day</strong></li>
-            <li><span>📚 Courses Done</span> <strong>7</strong></li>
-            <li><span>🧪 Experiments</span> <strong>15+</strong></li>
-            <li><span>📝 Notes</span> <strong>200+ pages</strong></li>
-            <li><span>🏆 Streak</span> <strong>90 days</strong></li>
-            <li><span>🎯 Current Focus</span> <strong>JavaScript & React</strong></li>
+    <div id="blast-overlay"></div>
+    <div id="blast-particles"></div>
+    <div id="main-content" class="content-hidden">
+      <nav class="navbar" id="navbar">
+        <div class="nav-container">
+          <a href="index.html" class="nav-logo">AA</a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="report.html" class="active">Report</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
-        </div>
-
-        <!-- Center: Timeline -->
-        <div>
-          <h2 class="section-title" style="text-align:left; margin-left:20px;">Dev Diary</h2>
-          <ul class="timeline-centered">
-            <li class="reveal">
-              <div class="timeline-date">Week 1</div>
-              <h3>Started HTML</h3>
-              <p>Learned semantic tags, forms, and the foundation of every web page.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 2</div>
-              <h3>CSS Grid & Flexbox</h3>
-              <p>Mastered layouts, responsive design, and began experimenting with animations.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 4</div>
-              <h3>First Responsive Site</h3>
-              <p>Built a mobile‑first landing page. Used media queries and fluid typography.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 6</div>
-              <h3>JavaScript Basics</h3>
-              <p>Variables, loops, functions, DOM. Wrote a to‑do app and a calculator.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 8</div>
-              <h3>Built This Portfolio</h3>
-              <p>Multi‑page, 3‑theme, preloader blast, custom cursor – all from scratch.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 10</div>
-              <h3>API & Async JS</h3>
-              <p>Connected to weather and quote APIs. Learned promises and fetch.</p>
-            </li>
-            <li class="reveal">
-              <div class="timeline-date">Week 12</div>
-              <h3>React Exploration</h3>
-              <p>Started learning components, state, and hooks. Building a small app soon.</p>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right: Research & Projects Highlights -->
-        <div class="research-cards">
-          <h2 class="section-title" style="text-align:left;">Research & Projects</h2>
-          
-          <div class="card research-item reveal">
-            <i class="fas fa-microchip"></i>
-            <h3>AI & ML Fundamentals</h3>
-            <p>Exploring neural networks and building a simple image classifier with TensorFlow.js.</p>
-            <span class="badge-tag" style="background:var(--accent); color:#fff;">Ongoing</span>
-          </div>
-
-          <div class="card research-item reveal">
-            <i class="fas fa-cloud"></i>
-            <h3>Full‑Stack Roadmap</h3>
-            <p>Designing a self‑learning path from HTML to MERN. Documented weekly milestones.</p>
-            <span class="badge-tag">Planning</span>
-          </div>
-
-          <div class="card research-item reveal">
-            <i class="fas fa-gamepad"></i>
-            <h3>Game Dev Experiment</h3>
-            <p>Created a 2D platformer prototype with pure Canvas. Physics and collision detection.</p>
-            <span class="badge-tag">Completed</span>
-          </div>
-
-          <div class="card research-item reveal">
-            <i class="fas fa-database"></i>
-            <h3>Data Structures Visualizer</h3>
-            <p>Interactive tool to visualise sorting algorithms and linked lists. Built with vanilla JS.</p>
-            <span class="badge-tag">In Progress</span>
+          <div class="theme-toggle-group">
+            <button
+              class="theme-btn"
+              data-theme-btn="light"
+              aria-label="Light mode"
+            >
+              ☀️
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="dark"
+              aria-label="Dark mode"
+            >
+              🌙
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="tech"
+              aria-label="Tech mode"
+            >
+              🧬
+            </button>
           </div>
         </div>
+      </nav>
 
-      </div>
-
-      <!-- Activity Heatmap -->
-      <div class="heatmap-wrapper reveal">
-        <h2 class="section-title" style="font-size:1.5rem;">Activity Heatmap</h2>
-        <div class="heatmap" aria-label="Coding activity heatmap">
-          <div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div><div class="heatmap-cell level-4"></div><div class="heatmap-cell level-3"></div><div class="heatmap-cell level-2"></div><div class="heatmap-cell level-1"></div>
+      <main>
+        <div class="report-title">
+          <h1>Dev <span>Report</span></h1>
         </div>
-      </div>
-    </main>
 
-    <footer class="footer">
-      <p>&copy; 2026 Affan Adil. All rights reserved.</p>
-      <p class="footer-motto">Discipline &gt; Motivation</p>
-    </footer>
-  </div>
+        <div class="report-layout">
+          <!-- Left: Study Profile -->
+          <div class="card study-profile reveal">
+            <div class="avatar">AA</div>
+            <h2>Affan Adil</h2>
+            <div class="badge">14 y/o · Polymath · Builder</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Self‑taught developer documenting the journey.
+            </p>
+            <ul class="study-stats">
+              <li><span>💻 Active Learning</span> <strong>4h/day</strong></li>
+              <li><span>📚 Courses Done</span> <strong>7</strong></li>
+              <li><span>🧪 Experiments</span> <strong>15+</strong></li>
+              <li><span>📝 Notes</span> <strong>200+ pages</strong></li>
+              <li><span>🏆 Streak</span> <strong>90 days</strong></li>
+              <li>
+                <span>🎯 Current Focus</span>
+                <strong>JavaScript & React</strong>
+              </li>
+            </ul>
+          </div>
 
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div id="toast-container"></div>
+          <!-- Center: Timeline -->
+          <div>
+            <h2
+              class="section-title"
+              style="text-align: left; margin-left: 20px"
+            >
+              Dev Diary
+            </h2>
+            <ul class="timeline-centered">
+              <li class="reveal">
+                <div class="timeline-date">Week 1</div>
+                <h3>Started HTML</h3>
+                <p>
+                  Learned semantic tags, forms, and the foundation of every web
+                  page.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 2</div>
+                <h3>CSS Grid & Flexbox</h3>
+                <p>
+                  Mastered layouts, responsive design, and began experimenting
+                  with animations.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 4</div>
+                <h3>First Responsive Site</h3>
+                <p>
+                  Built a mobile‑first landing page. Used media queries and
+                  fluid typography.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 6</div>
+                <h3>JavaScript Basics</h3>
+                <p>
+                  Variables, loops, functions, DOM. Wrote a to‑do app and a
+                  calculator.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 8</div>
+                <h3>Built This Portfolio</h3>
+                <p>
+                  Multi‑page, 3‑theme, preloader blast, custom cursor – all from
+                  scratch.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 10</div>
+                <h3>API & Async JS</h3>
+                <p>
+                  Connected to weather and quote APIs. Learned promises and
+                  fetch.
+                </p>
+              </li>
+              <li class="reveal">
+                <div class="timeline-date">Week 12</div>
+                <h3>React Exploration</h3>
+                <p>
+                  Started learning components, state, and hooks. Building a
+                  small app soon.
+                </p>
+              </li>
+            </ul>
+          </div>
 
-  <script src="js/theme.js"></script>
-  <script src="js/preloader.js"></script>
-  <script src="js/cursor.js"></script>
-  <script src="js/typing.js"></script>
-  <script src="js/counters.js"></script>
-  <script src="js/reveal.js"></script>
-  <script src="js/tab-visibility.js"></script>
-      <canvas id="particle-canvas"></canvas>
+          <!-- Right: Research & Projects Highlights -->
+          <div class="research-cards">
+            <h2 class="section-title" style="text-align: left">
+              Research & Projects
+            </h2>
+
+            <div class="card research-item reveal">
+              <i class="fas fa-microchip"></i>
+              <h3>AI & ML Fundamentals</h3>
+              <p>
+                Exploring neural networks and building a simple image classifier
+                with TensorFlow.js.
+              </p>
+              <span
+                class="badge-tag"
+                style="background: var(--accent); color: #fff"
+                >Ongoing</span
+              >
+            </div>
+
+            <div class="card research-item reveal">
+              <i class="fas fa-cloud"></i>
+              <h3>Full‑Stack Roadmap</h3>
+              <p>
+                Designing a self‑learning path from HTML to MERN. Documented
+                weekly milestones.
+              </p>
+              <span class="badge-tag">Planning</span>
+            </div>
+
+            <div class="card research-item reveal">
+              <i class="fas fa-gamepad"></i>
+              <h3>Game Dev Experiment</h3>
+              <p>
+                Created a 2D platformer prototype with pure Canvas. Physics and
+                collision detection.
+              </p>
+              <span class="badge-tag">Completed</span>
+            </div>
+
+            <div class="card research-item reveal">
+              <i class="fas fa-database"></i>
+              <h3>Data Structures Visualizer</h3>
+              <p>
+                Interactive tool to visualise sorting algorithms and linked
+                lists. Built with vanilla JS.
+              </p>
+              <span class="badge-tag">In Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Heatmap -->
+        <div class="heatmap-wrapper reveal">
+          <h2 class="section-title" style="font-size: 1.5rem">
+            Activity Heatmap
+          </h2>
+          <div class="heatmap" aria-label="Coding activity heatmap">
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+            <div class="heatmap-cell level-4"></div>
+            <div class="heatmap-cell level-3"></div>
+            <div class="heatmap-cell level-2"></div>
+            <div class="heatmap-cell level-1"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>&copy; 2026 Affan Adil. All rights reserved.</p>
+        <p class="footer-motto">Discipline &gt; Motivation</p>
+      </footer>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div id="toast-container"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/typing.js"></script>
+    <script src="js/counters.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/tab-visibility.js"></script>
+    <canvas id="particle-canvas"></canvas>
     <script src="js/particle.js"></script>
-    <script src="js/particles-config.js"></script>
-<script src="js/right-click.js"></script>
-<script src="js/achievements.js"></script>
-<script src="js/shortcuts.js"></script>
-</body>
+    <script src="js/right-click.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/shortcuts.js"></script>
+  </body>
 </html>

@@ -17,6 +17,11 @@
     });
   });
 
+  // Listen for theme changes from other sources (right-click, keyboard shortcuts)
+  window.addEventListener('themechange', (e) => {
+    updateActiveButton(e.detail.theme);
+  });
+
   function updateActiveButton(theme) {
     themeBtns.forEach(b => b.classList.remove('active-theme'));
     const activeBtn = document.querySelector(`[data-theme-btn="${theme}"]`);

@@ -1,302 +1,427 @@
 <!-- FILE: projects.html (FULL REWRITE – 12 PROJECT CARDS, NO SVG HERO) -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affan Adil – Projects</title>
-  <meta name="description" content="12 hand‑crafted projects by Affan Adil – from simple games to full‑stack experiments.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/themes.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/preloader.css">
-  <link rel="stylesheet" href="css/cursor.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affan Adil – Projects</title>
+    <meta
+      name="description"
+      content="12 hand‑crafted projects by Affan Adil – from simple games to full‑stack experiments."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/preloader.css" />
+    <link rel="stylesheet" href="css/cursor.css" />
 
-  <style>
-    /* Projects page tweaks */
-    .projects-hero {
-      text-align: center;
-      padding: 2rem 1rem 1.5rem;
-    }
-    .projects-hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .projects-hero h1 span {
-      color: var(--accent);
-    }
-    .projects-hero p {
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    /* Ensure all project cards have equal height */
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .project-card .project-image {
-      flex-shrink: 0;
-      background: var(--border);
-      border-radius: 16px;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      transition: background 0.3s, color 0.3s;
-    }
-    .project-card:hover .project-image {
-      background: var(--accent);
-      color: #fff;
-    }
-    [data-theme="tech"] .project-card:hover .project-image {
-      background: var(--primary-glow);
-      color: #030014;
-    }
-    .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-    .project-card p {
-      flex: 1;
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-    .project-tech {
-      margin: 0.8rem 0;
-    }
-    .project-links {
-      margin-top: auto;
-    }
-    /* 3‑column grid on desktop, 2 on tablet, 1 on mobile */
-    .cards-grid-4-col {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 1024px) {
-      .cards-grid-4-col {
-        grid-template-columns: repeat(2, 1fr);
+    <style>
+      /* Projects page tweaks */
+      .projects-hero {
+        text-align: center;
+        padding: 2rem 1rem 1.5rem;
       }
-    }
-    @media (max-width: 640px) {
-      .cards-grid-4-col {
-        grid-template-columns: 1fr;
+      .projects-hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
       }
-    }
-    .btn-sm {
-      padding: 0.5rem 1.1rem;
-      font-size: 0.85rem;
-    }
-    /* Coming soon tag */
-    .project-coming-soon {
-      position: relative;
-    }
-    .project-coming-soon::after {
-      content: "🚧 Coming Soon";
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.2rem 0.7rem;
-      border-radius: 12px;
-      opacity: 0.9;
-      pointer-events: none;
-    }
-  </style>
-</head>
-<body>
-  <div id="preloader">
-    <div class="preloader-card">
-      <div class="preloader-icon">💡</div>
-      <p class="preloader-label">Loading projects...</p>
-      <div class="preloader-progress-container">
-        <div class="preloader-progress-bar" id="progressBar"></div>
-        <span class="preloader-percentage" id="progressText">0%</span>
+      .projects-hero h1 span {
+        color: var(--accent);
+      }
+      .projects-hero p {
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      /* Ensure all project cards have equal height */
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .project-card .project-image {
+        flex-shrink: 0;
+        background: var(--border);
+        border-radius: 16px;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .project-card:hover .project-image {
+        background: var(--accent);
+        color: #fff;
+      }
+      [data-theme="tech"] .project-card:hover .project-image {
+        background: var(--primary-glow);
+        color: #030014;
+      }
+      .project-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+      .project-card p {
+        flex: 1;
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+      .project-tech {
+        margin: 0.8rem 0;
+      }
+      .project-links {
+        margin-top: auto;
+      }
+      /* 3‑column grid on desktop, 2 on tablet, 1 on mobile */
+      .cards-grid-4-col {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 1024px) {
+        .cards-grid-4-col {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .cards-grid-4-col {
+          grid-template-columns: 1fr;
+        }
+      }
+      .btn-sm {
+        padding: 0.5rem 1.1rem;
+        font-size: 0.85rem;
+      }
+      /* Coming soon tag */
+      .project-coming-soon {
+        position: relative;
+      }
+      .project-coming-soon::after {
+        content: "🚧 Coming Soon";
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.2rem 0.7rem;
+        border-radius: 12px;
+        opacity: 0.9;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="preloader-card">
+        <div class="preloader-icon">💡</div>
+        <p class="preloader-label">Loading projects...</p>
+        <div class="preloader-progress-container">
+          <div class="preloader-progress-bar" id="progressBar"></div>
+          <span class="preloader-percentage" id="progressText">0%</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="blast-overlay"></div>
-  <div id="blast-particles"></div>
-  <div id="main-content" class="content-hidden">
-
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="index.html" class="nav-logo">AA</a>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="report.html">Report</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="theme-toggle-group">
-          <button class="theme-btn" data-theme-btn="light" aria-label="Light mode">☀️</button>
-          <button class="theme-btn" data-theme-btn="dark" aria-label="Dark mode">🌙</button>
-          <button class="theme-btn" data-theme-btn="tech" aria-label="Tech mode">🧬</button>
+    <div id="blast-overlay"></div>
+    <div id="blast-particles"></div>
+    <div id="main-content" class="content-hidden">
+      <nav class="navbar" id="navbar">
+        <div class="nav-container">
+          <a href="index.html" class="nav-logo">AA</a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="report.html">Report</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="theme-toggle-group">
+            <button
+              class="theme-btn"
+              data-theme-btn="light"
+              aria-label="Light mode"
+            >
+              ☀️
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="dark"
+              aria-label="Dark mode"
+            >
+              🌙
+            </button>
+            <button
+              class="theme-btn"
+              data-theme-btn="tech"
+              aria-label="Tech mode"
+            >
+              🧬
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <main>
-      <!-- Simple hero -->
-      <section class="projects-hero">
-        <h1>My <span>Projects</span></h1>
-        <p>12 experiments, prototypes, and polished pieces — each one taught me something new. Click, explore, and see what I’ve built.</p>
-      </section>
+      <main>
+        <!-- Simple hero -->
+        <section class="projects-hero">
+          <h1>My <span>Projects</span></h1>
+          <p>
+            12 experiments, prototypes, and polished pieces — each one taught me
+            something new. Click, explore, and see what I’ve built.
+          </p>
+        </section>
 
-      <!-- 12 Project Cards Grid (3 cols desktop) -->
-      <div class="cards-grid cards-grid-4-col">
-        
-        <!-- 1. Super Portfolio -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-globe"></i></div>
-          <h3>Super Portfolio</h3>
-          <p>This very site. 3 themes, custom cursor, preloader blast, particles. Pure HTML/CSS/JS.</p>
-          <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
-          <div class="project-links"><a href="index.html" class="btn btn-primary btn-sm">Live</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
+        <!-- 12 Project Cards Grid (3 cols desktop) -->
+        <div class="cards-grid cards-grid-4-col">
+          <!-- 1. Super Portfolio -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-globe"></i></div>
+            <h3>Super Portfolio</h3>
+            <p>
+              This very site. 3 themes, custom cursor, preloader blast,
+              particles. Pure HTML/CSS/JS.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS3</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="index.html" class="btn btn-primary btn-sm">Live</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 2. Freelance Landing Page -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-briefcase"></i></div>
+            <h3>Freelance Landing</h3>
+            <p>
+              Modern responsive landing page for a freelance offer. CTA,
+              pricing, contact.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 3. JS Calculator -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-calculator"></i></div>
+            <h3>JS Calculator</h3>
+            <p>
+              Classic calculator with keyboard support and smooth UI. A practice
+              piece.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 4. To‑Do App -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-tasks"></i></div>
+            <h3>TaskFlow</h3>
+            <p>
+              A minimal to‑do app with local storage, drag‑and‑drop, and dark
+              mode.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 5. Weather Widget -->
+          <div class="card project-card reveal">
+            <div class="project-image">
+              <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <h3>Weatherly</h3>
+            <p>
+              Real‑time weather using OpenWeather API. City search, animated
+              icons.
+            </p>
+            <div class="project-tech">
+              <span>JS</span><span>API</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 6. Personal Blog Card -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-blog"></i></div>
+            <h3>Mini Blog</h3>
+            <p>
+              Static blog generated from Markdown files. Clean typography, no
+              frameworks.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 7. Tic Tac Toe -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-gamepad"></i></div>
+            <h3>Tic Tac Toe</h3>
+            <p>
+              Two‑player game with win detection, reset, and a mini scoreboard.
+            </p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 8. Password Generator -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-key"></i></div>
+            <h3>PassGen</h3>
+            <p>
+              Random secure password generator with customisable length and
+              options.
+            </p>
+            <div class="project-tech"><span>JS</span><span>HTML</span></div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 9. Color Palette Generator -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-palette"></i></div>
+            <h3>Palette Picker</h3>
+            <p>
+              Generate harmonious color palettes, lock colors, and export HEX
+              codes.
+            </p>
+            <div class="project-tech"><span>CSS</span><span>JS</span></div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 10. Meme Generator -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-laugh-squint"></i></div>
+            <h3>MemeForge</h3>
+            <p>
+              Upload image, add top/bottom text, download meme – all in browser.
+            </p>
+            <div class="project-tech">
+              <span>HTML Canvas</span><span>JS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 11. QR Code Generator -->
+          <div class="card project-card reveal">
+            <div class="project-image"><i class="fas fa-qrcode"></i></div>
+            <h3>QR Maker</h3>
+            <p>
+              Instant QR codes from any text or URL using a lightweight JS
+              library.
+            </p>
+            <div class="project-tech">
+              <span>JS</span><span>QRCode.js</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm">Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 12. AI Chat (Coming Soon) -->
+          <div class="card project-card reveal project-coming-soon">
+            <div class="project-image"><i class="fas fa-robot"></i></div>
+            <h3>AI Chatbot</h3>
+            <p>
+              Conversational bot powered by Gemini API. Context memory, typing
+              indicator.
+            </p>
+            <div class="project-tech">
+              <span>Python</span><span>Flask</span><span>API</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="#"
+                class="btn btn-primary btn-sm"
+                style="opacity: 0.5; pointer-events: none"
+                >Soon</a
+              >
+              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
+            </div>
+          </div>
         </div>
+      </main>
 
-        <!-- 2. Freelance Landing Page -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-briefcase"></i></div>
-          <h3>Freelance Landing</h3>
-          <p>Modern responsive landing page for a freelance offer. CTA, pricing, contact.</p>
-          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
+      <footer class="footer">
+        <p>&copy; 2026 Affan Adil. All rights reserved.</p>
+        <p class="footer-motto">Discipline &gt; Motivation</p>
+      </footer>
+    </div>
 
-        <!-- 3. JS Calculator -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-calculator"></i></div>
-          <h3>JS Calculator</h3>
-          <p>Classic calculator with keyboard support and smooth UI. A practice piece.</p>
-          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div id="toast-container"></div>
 
-        <!-- 4. To‑Do App -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-tasks"></i></div>
-          <h3>TaskFlow</h3>
-          <p>A minimal to‑do app with local storage, drag‑and‑drop, and dark mode.</p>
-          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 5. Weather Widget -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-cloud-sun-rain"></i></div>
-          <h3>Weatherly</h3>
-          <p>Real‑time weather using OpenWeather API. City search, animated icons.</p>
-          <div class="project-tech"><span>JS</span><span>API</span><span>CSS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 6. Personal Blog Card -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-blog"></i></div>
-          <h3>Mini Blog</h3>
-          <p>Static blog generated from Markdown files. Clean typography, no frameworks.</p>
-          <div class="project-tech"><span>HTML</span><span>CSS</span><span>Node.js</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 7. Tic Tac Toe -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-gamepad"></i></div>
-          <h3>Tic Tac Toe</h3>
-          <p>Two‑player game with win detection, reset, and a mini scoreboard.</p>
-          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 8. Password Generator -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-key"></i></div>
-          <h3>PassGen</h3>
-          <p>Random secure password generator with customisable length and options.</p>
-          <div class="project-tech"><span>JS</span><span>HTML</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 9. Color Palette Generator -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-palette"></i></div>
-          <h3>Palette Picker</h3>
-          <p>Generate harmonious color palettes, lock colors, and export HEX codes.</p>
-          <div class="project-tech"><span>CSS</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 10. Meme Generator -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-laugh-squint"></i></div>
-          <h3>MemeForge</h3>
-          <p>Upload image, add top/bottom text, download meme – all in browser.</p>
-          <div class="project-tech"><span>HTML Canvas</span><span>JS</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 11. QR Code Generator -->
-        <div class="card project-card reveal">
-          <div class="project-image"><i class="fas fa-qrcode"></i></div>
-          <h3>QR Maker</h3>
-          <p>Instant QR codes from any text or URL using a lightweight JS library.</p>
-          <div class="project-tech"><span>JS</span><span>QRCode.js</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm">Demo</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-        <!-- 12. AI Chat (Coming Soon) -->
-        <div class="card project-card reveal project-coming-soon">
-          <div class="project-image"><i class="fas fa-robot"></i></div>
-          <h3>AI Chatbot</h3>
-          <p>Conversational bot powered by Gemini API. Context memory, typing indicator.</p>
-          <div class="project-tech"><span>Python</span><span>Flask</span><span>API</span></div>
-          <div class="project-links"><a href="#" class="btn btn-primary btn-sm" style="opacity:0.5; pointer-events:none;">Soon</a> <a href="#" class="btn btn-secondary btn-sm">GitHub</a></div>
-        </div>
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <p>&copy; 2026 Affan Adil. All rights reserved.</p>
-      <p class="footer-motto">Discipline &gt; Motivation</p>
-    </footer>
-  </div>
-
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div id="toast-container"></div>
-
-  <script src="js/theme.js"></script>
-  <script src="js/preloader.js"></script>
-  <script src="js/cursor.js"></script>
-  <script src="js/typing.js"></script>
-  <script src="js/counters.js"></script>
-  <script src="js/reveal.js"></script>
-  <script src="js/tab-visibility.js"></script>
-        <canvas id="particle-canvas"></canvas>
+    <script src="js/theme.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/typing.js"></script>
+    <script src="js/counters.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/tab-visibility.js"></script>
+    <canvas id="particle-canvas"></canvas>
     <script src="js/particle.js"></script>
-    <script src="js/particles-config.js"></script>
-<script src="js/right-click.js"></script>
-<script src="js/achievements.js"></script>
-<script src="js/shortcuts.js"></script>
-</body>
+    <script src="js/right-click.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/shortcuts.js"></script>
+  </body>
 </html>
