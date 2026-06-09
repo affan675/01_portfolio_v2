@@ -1,410 +1,591 @@
-<!-- FILE: projects.html (FULL REWRITE – 12 PROJECT CARDS, NO SVG HERO) -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Affan Adil – Projects</title>
-    <meta
-      name="description"
-      content="12 hand‑crafted projects by Affan Adil – from simple games to full‑stack experiments."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/themes.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/preloader.css" />
-    <link rel="stylesheet" href="css/cursor.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affan Adil – Projects</title>
+  <meta name="description" content="25 hand‑crafted projects by Affan Adil – from simple games to full‑stack experiments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/preloader.css" />
+  <link rel="stylesheet" href="css/cursor.css" />
 
-    <style>
-      /* Projects page tweaks */
-      .projects-hero {
-        text-align: center;
-        padding: 2rem 1rem 1.5rem;
-      }
-      .projects-hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 0.5rem;
-      }
-      .projects-hero h1 span {
-        color: var(--accent);
-      }
-      .projects-hero p {
-        color: var(--text-secondary);
-        max-width: 600px;
-        margin: 0 auto;
-        font-size: 1.05rem;
-        line-height: 1.6;
-      }
-      /* Ensure all project cards have equal height */
-      .project-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      .project-card .project-image {
-        flex-shrink: 0;
-        background: var(--border);
-        border-radius: 16px;
-        height: 160px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.8rem;
-        color: var(--text-secondary);
-        margin-bottom: 1rem;
-        transition:
-          background 0.3s,
-          color 0.3s;
-      }
-      .project-card:hover .project-image {
-        background: var(--accent);
-        color: #fff;
-      }
-      [data-theme="tech"] .project-card:hover .project-image {
-        background: var(--primary-glow);
-        color: #030014;
-      }
-      .project-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-      }
-      .project-card p {
-        flex: 1;
-        color: var(--text-secondary);
-        font-size: 0.92rem;
-        line-height: 1.6;
-      }
-      .project-tech {
-        margin: 0.8rem 0;
-      }
-      .project-links {
-        margin-top: auto;
-      }
-      /* 3‑column grid on desktop, 2 on tablet, 1 on mobile */
+  <style>
+    /* Projects page tweaks */
+    .projects-hero {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+    }
+    .projects-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .projects-hero h1 span {
+      color: var(--accent);
+    }
+    .projects-hero p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    /* Ensure all project cards have equal height */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card .project-image {
+      position: relative;
+      flex-shrink: 0;
+      background: var(--border);
+      border-radius: 16px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      transition: background 0.3s, color 0.3s;
+      overflow: hidden;
+    }
+    .project-card .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-card:hover .project-image {
+      background: var(--accent);
+      color: #fff;
+    }
+    [data-theme="tech"] .project-card:hover .project-image {
+      background: var(--primary-glow);
+      color: #030014;
+    }
+    /* Demo badge (top-left) */
+    .demo-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      color: white;
+      pointer-events: none;
+    }
+    .demo-badge.live {
+      background: #16a34a;
+    }
+    .demo-badge.pending {
+      background: #ea580c;
+    }
+    /* Disabled button style */
+    .btn-disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      flex: 1;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .project-tech {
+      margin: 0.8rem 0;
+    }
+    .project-links {
+      margin-top: auto;
+    }
+    /* 3‑column grid on desktop, 2 on tablet, 1 on mobile */
+    .cards-grid-4-col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 1024px) {
       .cards-grid-4-col {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-      @media (max-width: 1024px) {
-        .cards-grid-4-col {
-          grid-template-columns: repeat(2, 1fr);
-        }
+    }
+    @media (max-width: 640px) {
+      .cards-grid-4-col {
+        grid-template-columns: 1fr;
       }
-      @media (max-width: 640px) {
-        .cards-grid-4-col {
-          grid-template-columns: 1fr;
-        }
-      }
-      .btn-sm {
-        padding: 0.5rem 1.1rem;
-        font-size: 0.85rem;
-      }
-      /* Coming soon tag */
-      .project-coming-soon {
-        position: relative;
-      }
-      .project-coming-soon::after {
-        content: "🚧 Coming Soon";
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        background: var(--accent);
-        color: #fff;
-        font-size: 0.7rem;
-        font-weight: 700;
-        padding: 0.2rem 0.7rem;
-        border-radius: 12px;
-        opacity: 0.9;
-        pointer-events: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="preloader">
-      <div class="preloader-card">
-        <div class="preloader-icon">💡</div>
-        <p class="preloader-label">Loading projects...</p>
-        <div class="preloader-progress-container">
-          <div class="preloader-progress-bar" id="progressBar"></div>
-          <span class="preloader-percentage" id="progressText">0%</span>
-        </div>
+    }
+    .btn-sm {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.85rem;
+    }
+    /* Coming soon tag (right side) */
+    .project-coming-soon {
+      position: relative;
+    }
+    .project-coming-soon::after {
+      content: "🔜 Coming Soon";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 12px;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div id="preloader">
+    <div class="preloader-card">
+      <div class="preloader-icon">💡</div>
+      <p class="preloader-label">Loading projects...</p>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar" id="progressBar"></div>
+        <span class="preloader-percentage" id="progressText">0%</span>
       </div>
     </div>
-    <div id="blast-overlay"></div>
-    <div id="blast-particles"></div>
-    <div id="main-content" class="content-hidden">
-      <nav class="navbar" id="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo">AA</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="report.html">Report</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="theme-toggle-group">
-      <button class="theme-btn" data-theme-btn="light">☀️</button>
-      <button class="theme-btn" data-theme-btn="dark">🌙</button>
-      <button class="theme-btn" data-theme-btn="tech">🧬</button>
-    </div>
   </div>
-</nav>
+  <div id="blast-overlay"></div>
+  <div id="blast-particles"></div>
+  <div id="main-content" class="content-hidden">
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">AA</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="report.html">Report</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="theme-toggle-group">
+          <button class="theme-btn" data-theme-btn="light">☀️</button>
+          <button class="theme-btn" data-theme-btn="dark">🌙</button>
+          <button class="theme-btn" data-theme-btn="tech">🧬</button>
+        </div>
+      </div>
+    </nav>
 
-      <main>
-        <!-- Simple hero -->
-        <section class="projects-hero">
-          <h1>My <span>Projects</span></h1>
-          <p>
-            12 experiments, prototypes, and polished pieces — each one taught me
-            something new. Click, explore, and see what I’ve built.
-          </p>
-        </section>
+    <main>
+      <section class="projects-hero">
+        <h1>My <span>Projects</span></h1>
+        <p>25 experiments, prototypes, and polished pieces — each one taught me something new. Click, explore, and see what I’ve built.</p>
+      </section>
 
-        <!-- 12 Project Cards Grid (3 cols desktop) -->
-        <div class="cards-grid cards-grid-4-col">
-          <!-- 1. Super Portfolio -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-globe"></i></div>
-            <h3>Super Portfolio</h3>
-            <p>
-              This very site. 3 themes, custom cursor, preloader blast,
-              particles. Pure HTML/CSS/JS.
-            </p>
-            <div class="project-tech">
-              <span>HTML5</span><span>CSS3</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="index.html" class="btn btn-primary btn-sm">Live</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
+      <div class="cards-grid cards-grid-4-col">
+        <!-- 1. Nexus Portfolio (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/portfolio_v2.jpg" alt="Nexus Portfolio" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
           </div>
-
-          <!-- 2. Freelance Landing Page -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-briefcase"></i></div>
-            <h3>Freelance Landing</h3>
-            <p>
-              Modern responsive landing page for a freelance offer. CTA,
-              pricing, contact.
-            </p>
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 3. JS Calculator -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-calculator"></i></div>
-            <h3>JS Calculator</h3>
-            <p>
-              Classic calculator with keyboard support and smooth UI. A practice
-              piece.
-            </p>
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 4. To‑Do App -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-tasks"></i></div>
-            <h3>TaskFlow</h3>
-            <p>
-              A minimal to‑do app with local storage, drag‑and‑drop, and dark
-              mode.
-            </p>
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 5. Weather Widget -->
-          <div class="card project-card reveal">
-            <div class="project-image">
-              <i class="fas fa-cloud-sun-rain"></i>
-            </div>
-            <h3>Weatherly</h3>
-            <p>
-              Real‑time weather using OpenWeather API. City search, animated
-              icons.
-            </p>
-            <div class="project-tech">
-              <span>JS</span><span>API</span><span>CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 6. Personal Blog Card -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-blog"></i></div>
-            <h3>Mini Blog</h3>
-            <p>
-              Static blog generated from Markdown files. Clean typography, no
-              frameworks.
-            </p>
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>Node.js</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 7. Tic Tac Toe -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-gamepad"></i></div>
-            <h3>Tic Tac Toe</h3>
-            <p>
-              Two‑player game with win detection, reset, and a mini scoreboard.
-            </p>
-            <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 8. Password Generator -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-key"></i></div>
-            <h3>PassGen</h3>
-            <p>
-              Random secure password generator with customisable length and
-              options.
-            </p>
-            <div class="project-tech"><span>JS</span><span>HTML</span></div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 9. Color Palette Generator -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-palette"></i></div>
-            <h3>Palette Picker</h3>
-            <p>
-              Generate harmonious color palettes, lock colors, and export HEX
-              codes.
-            </p>
-            <div class="project-tech"><span>CSS</span><span>JS</span></div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 10. Meme Generator -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-laugh-squint"></i></div>
-            <h3>MemeForge</h3>
-            <p>
-              Upload image, add top/bottom text, download meme – all in browser.
-            </p>
-            <div class="project-tech">
-              <span>HTML Canvas</span><span>JS</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 11. QR Code Generator -->
-          <div class="card project-card reveal">
-            <div class="project-image"><i class="fas fa-qrcode"></i></div>
-            <h3>QR Maker</h3>
-            <p>
-              Instant QR codes from any text or URL using a lightweight JS
-              library.
-            </p>
-            <div class="project-tech">
-              <span>JS</span><span>QRCode.js</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="btn btn-primary btn-sm">Demo</a>
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
-          </div>
-
-          <!-- 12. AI Chat (Coming Soon) -->
-          <div class="card project-card reveal project-coming-soon">
-            <div class="project-image"><i class="fas fa-robot"></i></div>
-            <h3>AI Chatbot</h3>
-            <p>
-              Conversational bot powered by Gemini API. Context memory, typing
-              indicator.
-            </p>
-            <div class="project-tech">
-              <span>Python</span><span>Flask</span><span>API</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="#"
-                class="btn btn-primary btn-sm"
-                style="opacity: 0.5; pointer-events: none"
-                >Soon</a
-              >
-              <a href="#" class="btn btn-secondary btn-sm">GitHub</a>
-            </div>
+          <h3>Nexus Portfolio</h3>
+          <p>A professional multi-themed portfolio showcasing modern web capabilities.</p>
+          <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/01_nexus_portfolio/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/01_nexus_portfolio" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
           </div>
         </div>
-      </main>
 
-      <footer class="footer">
-        <p>&copy; 2026 Affan Adil. All rights reserved.</p>
-        <p class="footer-motto">Discipline &gt; Motivation</p>
-      </footer>
-    </div>
+        <!-- 2. OmniDesk (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/omnidesk.jpg" alt="OmniDesk" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>OmniDesk</h3>
+          <p>A feature-rich dashboard with local storage support and dynamic themes.</p>
+          <div class="project-tech"><span>JS</span><span>LocalStorage</span><span>Themes</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/15_omni_desk" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
 
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
-    <div id="toast-container"></div>
+        <!-- 3. Students Diary (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/students_diary.jpg" alt="Students Diary" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Students Diary</h3>
+          <p>A digital log for students to track progress and daily tasks.</p>
+          <div class="project-tech"><span>JS</span><span>LocalStorage</span><span>CSS</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/13_students_diary/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/13_students_diary" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
 
-    <script src="js/theme.js"></script>
-    <script src="js/preloader.js"></script>
-    <script src="js/cursor.js"></script>
-    <script src="js/typing.js"></script>
-    <script src="js/counters.js"></script>
-    <script src="js/reveal.js"></script>
-    <script src="js/tab-visibility.js"></script>
-    <canvas id="particle-canvas"></canvas>
-    <script src="js/particle.js"></script>
-    <script src="js/right-click.js"></script>
-    <script src="js/achievements.js"></script>
-    <script src="js/shortcuts.js"></script>
-  </body>
+        <!-- 4. Quotify (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/quotify.jpg" alt="Quotify" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>Quotify</h3>
+          <p>A glassmorphic quote collector powered by a public API.</p>
+          <div class="project-tech"><span>API</span><span>Glassmorphism</span><span>JS</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/17_quote_collector" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 5. AI Frontend (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/ai_frontend.jpg" alt="AI Frontend" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>AI Frontend</h3>
+          <p>A sleek frontend interface designed for AI-driven applications.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/10_ai_frontend" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 6. Sudoku Forge (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/sudoku_forge.jpg" alt="Sudoku Forge" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Sudoku Forge</h3>
+          <p>A logic-based game with custom algorithms and responsive design.</p>
+          <div class="project-tech"><span>JS</span><span>Algorithm</span><span>Responsive</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/05_sudoku_forge_website/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/05_sudoku_forge_website" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 7. Islamic School Website (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/islamic_school.jpg" alt="Islamic School Website" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Islamic School Website</h3>
+          <p>A comprehensive educational portal with gallery and mock auth.</p>
+          <div class="project-tech"><span>JS</span><span>Mock Auth</span><span>Gallery</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/14_islamic_school_website/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/14_islamic_school_website" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 8. Scholars Trust (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/scholars_trust.jpg" alt="Scholars Trust" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>Scholars Trust</h3>
+          <p>A clean and professional landing page for academic organizations.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/12_scholars_trust" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 9. Crystal Cavern Glow (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/crystal_cavern.jpg" alt="Crystal Cavern Glow" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>Crystal Cavern Glow</h3>
+          <p>An experimental UI focusing on advanced CSS and particle effects.</p>
+          <div class="project-tech"><span>Particles</span><span>Theme</span><span>Advanced CSS</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/Crystal_Cavern_Glow" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 10. Forgefire Digital (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/forgefire.jpg" alt="Forgefire Digital" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>Forgefire Digital</h3>
+          <p>A responsive digital agency landing page using modern CSS variables.</p>
+          <div class="project-tech"><span>CSS Variables</span><span>JS</span><span>Responsive</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/Forgefire_Digital" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 11. Stellar Bloom Studios (❌ not live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/stellar_bloom.jpg" alt="Stellar Bloom Studios" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge pending">🚧 Demo Pending</span>
+          </div>
+          <h3>Stellar Bloom Studios</h3>
+          <p>A creative studio showcase featuring HTML5 and CSS3 animations.</p>
+          <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JS</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Demo</button>
+            <a href="https://github.com/affan675/Stellar_bloom_studios" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 12. Sugar & Dough (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/sugar_dough.jpg" alt="Sugar & Dough" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Sugar & Dough</h3>
+          <p>A delightful bakery website layout built with Flexbox and CSS Grid.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>Flexbox/Grid</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/m2_sugar_and_dough/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/m2_sugar_and_dough" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 13. Eco Green Bottles (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/eco_bottles.jpg" alt="Eco Green Bottles" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Eco Green Bottles</h3>
+          <p>An eco-friendly product page with optimized images and animations.</p>
+          <div class="project-tech"><span>CSS</span><span>Animation</span><span>Responsive</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/m1_eco_green_bottles/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/m1_eco_green_bottles" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 14. PassLock Manager (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/password_manager.jpg" alt="PassLock Manager" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>PassLock Manager</h3>
+          <p>A secure browser-based password manager utilizing local storage.</p>
+          <div class="project-tech"><span>JS</span><span>LocalStorage</span><span>Security</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/02_password_manager/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/02_password_manager" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 15. Bookmark Manager (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/bookmark_manager.jpg" alt="Bookmark Manager" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Bookmark Manager</h3>
+          <p>A productivity tool for managing links with drag-and-drop support.</p>
+          <div class="project-tech"><span>JS</span><span>IndexedDB</span><span>Drag&Drop</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/03_bookmark_manager/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/03_bookmark_manager" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 16. Model Matrix AI (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/model_matrix_ai.jpg" alt="Model Matrix AI" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Model Matrix AI</h3>
+          <p>A modern UI/UX concept designed for exploring and managing AI models.</p>
+          <div class="project-tech"><span>JS</span><span>API ready</span><span>UI/UX</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/06_model_matrix_ai/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/06_model_matrix_ai" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 17. Darur Rashad Trust (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/super_trust.jpg" alt="Darur Rashad Trust" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Darur Rashad Trust</h3>
+          <p>A semantic, multi-page website built for a community-based trust.</p>
+          <div class="project-tech"><span>Multi-page</span><span>Responsive</span><span>Semantic</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/07_super_trust_website/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/07_super_trust_website" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 18. Polymath Dashboard (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/polymath_dashboard.jpg" alt="Polymath Dashboard" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Polymath Dashboard</h3>
+          <p>A comprehensive dashboard for advanced data visualization and management.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/04_polymath_dashboard/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/04_polymath_dashboard" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 19. Tic Tac Toe (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/tic_tac_toe.jpg" alt="Tic Tac Toe" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>Tic Tac Toe</h3>
+          <p>A classic implementation with win detection and score tracking.</p>
+          <div class="project-tech"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/11_tic_tac_toe/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/11_tic_tac_toe" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 20. DreamBridge School (✅ live) -->
+        <div class="card project-card reveal">
+          <div class="project-image">
+            <img src="assets/projects/dreambridge.jpg" alt="DreamBridge School" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+            <span class="demo-badge live">✅ Live Demo</span>
+          </div>
+          <h3>DreamBridge School</h3>
+          <p>A responsive multi-page website tailored for educational institutions.</p>
+          <div class="project-tech"><span>Multi-page</span><span>Responsive</span><span>JS</span></div>
+          <div class="project-links">
+            <a href="https://affan675.github.io/school_india_dreambridge/" target="_blank" class="btn btn-primary btn-sm">Demo</a>
+            <a href="https://github.com/affan675/school_india_dreambridge" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+          </div>
+        </div>
+
+        <!-- 21. Project Alpha (Coming Soon) -->
+        <div class="card project-card reveal project-coming-soon">
+          <div class="project-image">
+            <img src="assets/projects/coming_soon_1.jpg" alt="Project Alpha" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+          </div>
+          <h3>Project Alpha</h3>
+          <p>Upcoming web application built with React and Node.js for high scalability.</p>
+          <div class="project-tech"><span>React</span><span>Node.js</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Soon</button>
+            <button class="btn btn-secondary btn-sm btn-disabled" disabled>GitHub</button>
+          </div>
+        </div>
+
+        <!-- 22. Nexus AI Studio (Coming Soon) -->
+        <div class="card project-card reveal project-coming-soon">
+          <div class="project-image">
+            <img src="assets/projects/coming_soon_2.jpg" alt="Nexus AI Studio" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+          </div>
+          <h3>Nexus AI Studio</h3>
+          <p>An AI-powered workspace using Next.js and OpenAI API integration.</p>
+          <div class="project-tech"><span>Next.js</span><span>Tailwind</span><span>OpenAI</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Soon</button>
+            <button class="btn btn-secondary btn-sm btn-disabled" disabled>GitHub</button>
+          </div>
+        </div>
+
+        <!-- 23. DevOps Sentinel (Coming Soon) -->
+        <div class="card project-card reveal project-coming-soon">
+          <div class="project-image">
+            <img src="assets/projects/coming_soon_3.jpg" alt="DevOps Sentinel" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+          </div>
+          <h3>DevOps Sentinel</h3>
+          <p>Real-time monitoring dashboard featuring WebSockets and Chart.js analytics.</p>
+          <div class="project-tech"><span>WebSockets</span><span>Chart.js</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Soon</button>
+            <button class="btn btn-secondary btn-sm btn-disabled" disabled>GitHub</button>
+          </div>
+        </div>
+
+        <!-- 24. 3D Portfolio Explorer (Coming Soon) -->
+        <div class="card project-card reveal project-coming-soon">
+          <div class="project-image">
+            <img src="assets/projects/coming_soon_4.jpg" alt="3D Portfolio Explorer" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+          </div>
+          <h3>3D Portfolio Explorer</h3>
+          <p>An immersive 3D experience powered by Three.js and GSAP animations.</p>
+          <div class="project-tech"><span>Three.js</span><span>GSAP</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Soon</button>
+            <button class="btn btn-secondary btn-sm btn-disabled" disabled>GitHub</button>
+          </div>
+        </div>
+
+        <!-- 25. Mobile-First UI Kit (Coming Soon) -->
+        <div class="card project-card reveal project-coming-soon">
+          <div class="project-image">
+            <img src="assets/projects/coming_soon_5.jpg" alt="Mobile-First UI Kit" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23333\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'20\' fill=\'white\' text-anchor=\'middle\' dy=\'.3em\'%3EPreview%3C/text%3E%3C/svg%3E'">
+          </div>
+          <h3>Mobile-First UI Kit</h3>
+          <p>A lightweight UI component library optimized for Vue 3 and Vite.</p>
+          <div class="project-tech"><span>Vue 3</span><span>Vite</span></div>
+          <div class="project-links">
+            <button class="btn btn-primary btn-sm btn-disabled" disabled>Soon</button>
+            <button class="btn btn-secondary btn-sm btn-disabled" disabled>GitHub</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Affan Adil. All rights reserved.</p>
+      <p class="footer-motto">Discipline &gt; Motivation</p>
+    </footer>
+  </div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div id="toast-container"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/typing.js"></script>
+  <script src="js/counters.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/tab-visibility.js"></script>
+  <canvas id="particle-canvas"></canvas>
+  <script src="js/particle.js"></script>
+  <script src="js/right-click.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/shortcuts.js"></script>
+</body>
 </html>
