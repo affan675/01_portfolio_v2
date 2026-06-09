@@ -1,4 +1,4 @@
-/* FILE: css/responsive.css – Fully responsive, no clipping, no extra space */
+/* FILE: css/responsive.css – Fully responsive, clean, single theme button on mobile */
 
 /* ========== BASE SAFETY ========== */
 body {
@@ -7,7 +7,7 @@ body {
   position: relative;
 }
 
-/* Ensure preloader always covers whole screen */
+/* Preloader full coverage */
 #preloader {
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@ body {
   box-sizing: border-box;
 }
 
-/* ========== TABLET & DESKTOP (max-width: 1024px) ========== */
+/* ========== TABLET & SMALL DESKTOP (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column-reverse;
@@ -72,15 +72,18 @@ body {
   }
 }
 
+/* ========== MOBILE (max-width: 768px) – with single theme button ========== */
 @media (max-width: 768px) {
-  /* --- Navbar fixes --- */
+  /* --- Navbar container --- */
   .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    padding: 0 1rem;
   }
 
+  /* Hamburger (rightmost) */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -90,6 +93,7 @@ body {
     cursor: pointer;
     z-index: 1002;
     margin-left: auto;
+    order: 2;
   }
   .hamburger span {
     width: 25px;
@@ -108,17 +112,35 @@ body {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Theme toggle beside hamburger */
+  /* Theme toggle group – single cycling button */
   .theme-toggle-group {
     position: static;
     display: flex;
-    gap: 6px;
+    align-items: center;
+    justify-content: center;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 40px;
-    padding: 4px 8px;
+    padding: 4px 12px;
     margin-right: 12px;
     order: 1;
+  }
+  /* Hide all original theme buttons */
+  .theme-toggle-group .theme-btn {
+    display: none;
+  }
+  /* The mobile cycle button (added by JS) */
+  .mobile-cycle-btn {
+    display: flex !important;
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    padding: 0 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .mobile-cycle-btn:active {
+    transform: scale(0.9);
   }
 
   /* Mobile slide-in menu */
@@ -165,42 +187,6 @@ body {
     max-width: 320px;
     padding: 1.5rem 1rem;
   }
-  .blast-particle {
-    font-size: 1.4rem !important;
-  }
-
-  /* Other mobile styles (hero, stats, etc.) */
-  .hero-name { font-size: 2rem; }
-  .skill-circle { width: 85px; height: 85px; }
-  .skill-circle svg { width: 76px; height: 76px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  main { padding: 1rem; }
-}
-
-  /* Fix theme toggle position on mobile (so it doesn't overlap hamburger) */
-  .theme-toggle-group {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1002;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 40px;
-    padding: 5px 12px;
-    gap: 8px;
-  }
-
-  /* --- Preloader: fully visible, centred, no clipping --- */
-  #preloader {
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
-  .preloader-card {
-    width: 85%;
-    max-width: 320px;
-    padding: 1.5rem 1rem;
-  }
   .preloader-icon {
     font-size: 2.8rem;
   }
@@ -214,7 +200,7 @@ body {
     font-size: 1.4rem !important;
   }
 
-  /* --- Rest of mobile styles (unchanged, but safe) --- */
+  /* Other mobile styles */
   .hero-name {
     font-size: 2rem;
   }
@@ -242,7 +228,7 @@ body {
   .footer {
     padding: 1rem;
   }
-
+}
 
 /* ========== EXTRA SMALL (max-width: 480px) ========== */
 @media (max-width: 480px) {
