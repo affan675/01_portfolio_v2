@@ -72,18 +72,15 @@ body {
   }
 }
 
-/* ========== MOBILE (max-width: 768px) – FIXED POSITIONS ========== */
 @media (max-width: 768px) {
-  /* --- Navbar container --- */
+  /* --- Navbar fixes --- */
   .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
     position: relative;
   }
 
-  /* Hamburger stays on right */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -92,11 +89,26 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1002;
-    order: 2;  /* push to the right */
     margin-left: auto;
   }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 
-  /* Theme toggle group – now positioned beside hamburger, not fixed bottom */
+  /* Theme toggle beside hamburger */
   .theme-toggle-group {
     position: static;
     display: flex;
@@ -107,19 +119,9 @@ body {
     padding: 4px 8px;
     margin-right: 12px;
     order: 1;
-    transform: none;
-    bottom: auto;
-    right: auto;
   }
 
-  /* Override any previous fixed positioning */
-  .theme-toggle-group {
-    position: static !important;
-    bottom: auto !important;
-    right: auto !important;
-  }
-
-  /* Mobile slide‑in menu */
+  /* Mobile slide-in menu */
   .nav-links {
     position: fixed;
     top: 0;
@@ -152,7 +154,27 @@ body {
     display: block;
   }
 
-  /* ... rest of mobile styles (preloader, hero, etc.) unchanged ... */
+  /* Preloader fixes */
+  #preloader {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .preloader-card {
+    width: 85%;
+    max-width: 320px;
+    padding: 1.5rem 1rem;
+  }
+  .blast-particle {
+    font-size: 1.4rem !important;
+  }
+
+  /* Other mobile styles (hero, stats, etc.) */
+  .hero-name { font-size: 2rem; }
+  .skill-circle { width: 85px; height: 85px; }
+  .skill-circle svg { width: 76px; height: 76px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  main { padding: 1rem; }
 }
 
   /* Fix theme toggle position on mobile (so it doesn't overlap hamburger) */
