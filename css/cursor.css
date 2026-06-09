@@ -14,7 +14,10 @@ body {
   pointer-events: none;
   z-index: 999999;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease;
   mix-blend-mode: difference;
 }
 
@@ -35,7 +38,11 @@ body {
   pointer-events: none;
   z-index: 999998;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, border-width 0.3s ease;
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    border-color 0.3s ease,
+    border-width 0.3s ease;
 }
 
 .cursor-ring.hovering {
@@ -60,6 +67,42 @@ body {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
-a, button, .card, .btn, input, textarea, .theme-btn, .hamburger, .skill-circle, .social-links a, .project-card, .about-card, .featured-card {
+a,
+button,
+.card,
+.btn,
+input,
+textarea,
+.theme-btn,
+.hamburger,
+.skill-circle,
+.social-links a,
+.project-card,
+.about-card,
+.featured-card {
   cursor: none;
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  body,
+  a,
+  button,
+  .card,
+  .btn,
+  input,
+  textarea,
+  .theme-btn,
+  .hamburger,
+  .skill-circle,
+  .social-links a,
+  .project-card,
+  .about-card,
+  .featured-card {
+    cursor: auto !important;
+  }
 }

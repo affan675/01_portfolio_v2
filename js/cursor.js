@@ -1,5 +1,28 @@
-// FILE: js/cursor.js
+// FILE: js/cursor.js – with touch/mobile detection
 (function() {
+  // Detect if the device supports touch or has a coarse pointer (mobile/tablet)
+  function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0) ||
+            window.matchMedia('(pointer: coarse)').matches);
+  }
+
+  // If touch device, remove custom cursor and exit
+  if (isTouchDevice()) {
+    // Remove custom cursor elements from DOM
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (dot) dot.remove();
+    if (ring) ring.remove();
+    // Restore default cursor on body and all interactive elements
+    document.body.style.cursor = 'auto';
+    const allInteractive = document.querySelectorAll('a, button, .card, .btn, input, textarea, .theme-btn, .hamburger, .skill-circle, .social-links a, .project-card, .about-card, .featured-card');
+    allInteractive.forEach(el => el.style.cursor = 'auto');
+    return; // Stop execution – no custom cursor on mobile
+  }
+
+  // --- Original custom cursor code for desktop only ---
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   if (!dot || !ring) return;
@@ -43,7 +66,7 @@
   const hoverTargets = document.querySelectorAll('a, button, .card, .btn, input, textarea, .theme-btn, .hamburger, .skill-circle, .social-links a, .project-card, .about-card, .featured-card');
   
   hoverTargets.forEach(el => {
-    el.addEventListener('mouseenter', (e) => {
+    el.addEventListener('mouseenter', () => {
       isHovering = true;
       dot.classList.add('hovering');
       ring.classList.add('hovering');
