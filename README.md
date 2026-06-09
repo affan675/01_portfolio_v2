@@ -6,7 +6,7 @@
 
 *Logic over luck. Discipline over motivation.*
 
-[Portfolio](https://affanadil.dev) • [Twitter](https://twitter.com/affan675) • [Email](mailto:affanadil11@gmail.com)
+[Portfolio](https://affan675.github.io/01_portfolio_v2/projects.html) • [Wakatime](https://wakatime.com/@affan675) • [Email](mailto:affanadil119@gmail.com)
 
 </div>
 
@@ -44,9 +44,7 @@ I'm a **14-year-old full-stack developer and builder** passionate about creating
 
 <div align="center">
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=affan675&show_icons=true&theme=dark&hide_border=true&count_private=true)](https://github.com/affan675)
 
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=affan675&layout=compact&theme=dark&hide_border=true)](https://github.com/affan675)
 
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=affan675&theme=dark&hide_border=true)](https://github.com/affan675)
 
@@ -125,15 +123,6 @@ A modern, responsive personal portfolio website with theme switching, particle a
 
 ---
 
-## 📊 Activity & Engagement
-
-<div align="center">
-
-![Affan's GitHub Activity](https://activity-graph.herokuapp.com/graph?username=affan675&theme=nord&hide_border=true)
-
-</div>
-
----
 
 ## 🎯 Current Focus
 
